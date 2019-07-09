@@ -33,6 +33,7 @@ var Mocha = require('mocha'),
     path = require('path');
 
 var mocha = new Mocha();
+mocha.timeout(50000)
 var testDir = './tests'
 
 
@@ -57,7 +58,7 @@ emitter.run = function() {
   try {
   var runner = mocha.ui('tdd').run()
     .on('test end', function(test) {
-        // remove comments
+        https://api.glitch.com/git/sponge-accordion// remove comments
         var body = test.body.replace(/\/\/.*\n|\/\*.*\*\//g, '');
         // collapse spaces
         body = body.replace(/\s+/g,' ');
