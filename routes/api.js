@@ -21,7 +21,12 @@ const StockRecord = require("../models/stockRecord")
 //获取客户端真实ip;
 function getClientIp(req) {
     var ipAddress;
-    var forwardedIpsStr = req.headers['X-Forwarded-For'];//判断是否有反向代理头信息
+  //   let ips = req.headers["x-forwarded-for"].split(",");
+  // let ip;
+  // if(ips[0].match(/^((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)$/g)){
+  //    ip = ips[0]
+  // }
+    var forwardedIpsStr = req.headers['x-forwarded-for'];//判断是否有反向代理头信息
     if (forwardedIpsStr) {//如果有，则将头信息中第一个地址拿出，该地址就是真实的客户端IP；
         var forwardedIps = forwardedIpsStr.split(',');
         ipAddress = forwardedIps[0];
